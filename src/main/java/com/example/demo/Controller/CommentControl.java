@@ -1,14 +1,14 @@
-package Controller;
+package com.example.demo.Controller;
 
-import Entity.Comment;
-import IMPL.CRUD;
+import com.example.demo.Entity.Comment;
+import com.example.demo.IMPL.CRUD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins ={"http://localhost:3000"})
+@CrossOrigin(origins = { "http://localhost:3000"})
 @RestController
 public class CommentControl {
     private final CRUD crud;

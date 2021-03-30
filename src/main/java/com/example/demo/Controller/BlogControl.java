@@ -1,22 +1,24 @@
-package Controller;
+package com.example.demo.Controller;
 
-import Entity.Blog;
-import IMPL.CRUD;
+import com.example.demo.Entity.Blog;
+import com.example.demo.IMPL.CRUD;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
-@CrossOrigin(origins =("http://localhost:3000"))
+@CrossOrigin(origins = { "http://localhost:3000"})
 @RestController
 public class BlogControl {
     private final CRUD crud;
 
+    @Autowired
 public BlogControl(@Qualifier("blogIMPL") CRUD crud) {
         this.crud = crud;
     }
 
-    @GetMapping("/AllBlogs")
+    @GetMapping("/allblogs")
     public List<Object> searchAll(){ return crud.searchAll();}
 
     @PostMapping("/PostBlog")

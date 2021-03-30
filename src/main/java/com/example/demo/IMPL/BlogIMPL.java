@@ -1,6 +1,6 @@
-package IMPL;
+package com.example.demo.IMPL;
 
-import Entity.Comment;
+import com.example.demo.Entity.Blog;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,11 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public class CommentIMPL implements CRUD {
+public class BlogIMPL implements CRUD{
     private final EntityManager manager;
+
     @Autowired
-    public CommentIMPL(EntityManager manager){
+    public BlogIMPL(EntityManager manager) {
         this.manager = manager;
     }
 
@@ -22,16 +23,16 @@ public class CommentIMPL implements CRUD {
     @Transactional
     public List<Object> searchAll() {
         Session session = manager.unwrap(Session.class);
-        Query<Object> query = session.createQuery("from Comment");
+        Query<Object> query = session.createQuery("from Blog");
         return query.getResultList();
     }
 
-    @Override
+    @Override//not needed
     public Object searchId(int theId) {
         return null;
     }
 
-    @Override
+    @Override//not needed
     public List<Object> search(Object object) {
         return null;
     }
@@ -46,13 +47,15 @@ public class CommentIMPL implements CRUD {
     public void saveUpdate(Object object) {
         Session session = manager.unwrap(Session.class);
         session.saveOrUpdate(object);
+
     }
 
     @Override
     @Transactional
     public void deleteId(int theId) {
         Session session = manager.unwrap(Session.class);
-        Comment comment = session.get(Comment.class, theId);
-        session.delete(comment);
+        Blog blog = session.get(Blog.class, theId);
+        session.delete(blog);
+
     }
 }

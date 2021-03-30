@@ -1,4 +1,4 @@
-package IMPL;
+package com.example.demo.IMPL;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -43,7 +43,7 @@ public class UserIMPL implements UserCRUD{
         for(Object i: list){
 
         }
-
+return name;
     }
 
     @Override

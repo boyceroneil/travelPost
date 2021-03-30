@@ -1,4 +1,6 @@
-package Entity;
+package com.example.demo.Entity;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,18 +21,20 @@ public class Blog {
     private String picture;
 
     @Column(name="date")
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date date;
 
     @Column(name="description")
     private String description;
 
-    @OneToMany(mappedBy = "blog", fetch=FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<Comment> comment;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name= "user_id", nullable=false)
-    private User user;
+//    @OneToMany(mappedBy = "blog", fetch=FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    private Set<Comment> comment;
+//
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name= "user_id", nullable=false)
+//    private User user;
 
     public Blog(int id, String name, String picture, Date date, String description) {
         this.id = id;
