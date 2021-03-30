@@ -30,7 +30,7 @@ class UpdateBlog extends Component{
     }
 
     render(){
-        let {id, name, picture, description, date}
+        let {id, name, picture, description, date} = this.state
         return(
             <div>
                 <div>
