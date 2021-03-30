@@ -1,4 +1,4 @@
-package Entity;
+package com.example.demo.Entity;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -17,13 +17,13 @@ public class User {
     @Column(name="password")
     private String password;
 
-    @OneToMany(mappedBy = "user", fetch=FetchType.LAZY,
-                cascade = CascadeType.ALL)
-    private Set<Comment> comment;
-
-    @OneToMany(mappedBy = "user", fetch=FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<Blog> blog;
+//    @OneToMany(mappedBy = "user", fetch=FetchType.LAZY,
+//                cascade = CascadeType.ALL)
+//    private Set<Comment> comment;
+//
+//    @OneToMany(mappedBy = "user", fetch=FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    private Set<Blog> blog;
 
     public User(int id, String name, String password) {
         this.id = id;
@@ -63,8 +63,6 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", comment=" + comment +
-                '}';
+                ", password='" + password + '}';
     }
 }

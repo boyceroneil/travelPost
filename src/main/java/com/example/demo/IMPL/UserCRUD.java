@@ -1,8 +1,8 @@
-package IMPL;
+package com.example.demo.IMPL;
 
 import java.util.List;
 
-public interface UserCRUD {
+public interface UserCRUD extends CRUD{
     List<Object> searchAll();
     Object searchId(int theId);
     //    List<Object> genreType(Object object);
