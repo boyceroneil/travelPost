@@ -12,6 +12,24 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.commentBtn{
+  float: right;
+}
+
+.likeBtn{
+float: left;
+background-color: #4CAF50;
+color: white;
+padding: 15px 32px;
+text-align: center;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+.deleteBtn{
+float: none;
+}
 
 .App-header {
   background-color: #282c34;
