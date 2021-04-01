@@ -10,10 +10,10 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public class UserIMPL implements UserCRUD{
-    @Autowired
+public class UserIMPL implements CRUD{
     private final EntityManager manager;
 
+    @Autowired
     public UserIMPL(EntityManager manager) {
         this.manager = manager;
     }
