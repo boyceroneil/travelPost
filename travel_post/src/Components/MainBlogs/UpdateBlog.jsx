@@ -1,6 +1,6 @@
 import blogService from '/React_Projects/travelPost/travel_post/src/Services/BlogServices'
 import React, {Component} from 'react';
-import {Formik, Form, Field} from 'formic'
+import {Formik, Form, Field} from 'formik'
 class UpdateBlog extends Component{
     constructor(props){
         super(props)
@@ -50,23 +50,23 @@ class UpdateBlog extends Component{
             </fieldset>
 
             <fieldset>
-                <label>Picture</label>
-                <Field type="text" name="picture" disabled />
-            </fieldset>
-
-            <fieldset>
                 <label>Title</label>
                 <Field type="text" name="name"  />
             </fieldset>
-            
+
             <fieldset>
-                <label>description</label>
-                <Field type="text" name="description" />
+                <label>Picture</label>
+                <Field type="text" name="picture" disabled />
             </fieldset>
             
             <fieldset>
                 <label>date</label>
                 <Field type="text" name="date" disabled />
+            </fieldset>
+            
+            <fieldset>
+                <label>description</label>
+                <Field type="text" name="description" />
             </fieldset>
 
             <button type ="submit">Update post</button>

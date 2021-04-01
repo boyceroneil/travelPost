@@ -10,6 +10,7 @@ class AddBlog extends Component{
             description: '',
             picture: '',
             date: '',
+            like: 0,
         }
         this.change = this.change.bind(this)
         this.addBlog = this.addBlog.bind(this)
@@ -25,7 +26,8 @@ class AddBlog extends Component{
             name: this.state.name,
             description: this.state.description,
             picture: this.state.picture,
-            date: this.state.date
+            date: this.state.date,
+            like: this.state.like
         }
         blogService.postBlog(blog).then(this.props.history.push('/DisplayBlog'))
 
@@ -44,22 +46,22 @@ class AddBlog extends Component{
                         </div>
                         <div>
                             <label>Title:</label>
-                            <input type ="text" value={this.state.name} ></input>
+                            <input type ="text" name="name" onChange={this.change} ></input>
                             
                         </div>
                         <div>
                             <label>Picture:</label>
-                            <input type ="text" value={this.state.Picture} ></input>
+                            <input type ="file" name="picture" onChange={this.change} accept="image/*"></input>
                             
                         </div>
                         <div>
                             <label>Description:</label>
-                            <input type ="text" value={this.state.description} ></input>
+                            <input type ="text" name="description" onChange={this.change} ></input>
                             
                         </div>
                         <div>
                             <label>date:</label>
-                            <input type ="text" value={this.state.date} placeholder="mm:dd:yyyy"></input>
+                            <input type ="date" name="date" placeholder="yyyy-MM-dd HH:mm:ss" onChange={this.change}></input>
                             
                         </div>
                         <div>
