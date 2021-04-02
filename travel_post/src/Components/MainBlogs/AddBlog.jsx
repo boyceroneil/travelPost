@@ -21,11 +21,12 @@ class AddBlog extends Component{
         })
     }
     addBlog(){
+        let splits= this.state.picture.split('fakepath\\');
         let blog = {
             id: this.state.id,
             name: this.state.name,
             description: this.state.description,
-            picture: this.state.picture,
+            picture: splits[1],
             date: this.state.date,
             like: this.state.like
         }
