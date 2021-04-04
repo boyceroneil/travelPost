@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -24,7 +25,9 @@ public class BlogIMPL implements CRUD{
     public List<Object> searchAll() {
         Session session = manager.unwrap(Session.class);
         Query<Object> query = session.createQuery("from Blog");
-        return query.getResultList();
+        List<Object> list = query.getResultList();
+        Collections.reverse(list);
+        return list;
     }
 
     @Override//not needed

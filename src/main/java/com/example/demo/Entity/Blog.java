@@ -21,12 +21,16 @@ public class Blog {
     private String picture;
 
     @Column(name="date")
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @Temporal(TemporalType.DATE)
+    @JsonFormat( pattern="yyyy-MM-dd")
     private Date date;
 
     @Column(name="description")
     private String description;
+
+    @Column(name="points")
+    private int points;
+
 
 //    @OneToMany(mappedBy = "blog", fetch=FetchType.LAZY,
 //            cascade = CascadeType.ALL)
@@ -36,12 +40,14 @@ public class Blog {
 //    @JoinColumn(name= "user_id", nullable=false)
 //    private User user;
 
-    public Blog(int id, String name, String picture, Date date, String description) {
+
+    public Blog(int id, String name, String picture, Date date, String description, int points) {
         this.id = id;
         this.name = name;
         this.picture = picture;
         this.date = date;
         this.description = description;
+        this.points = points;
     }
 
     public Blog() {
@@ -87,6 +93,14 @@ public class Blog {
         this.description = description;
     }
 
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     @Override
     public String toString() {
         return "Blog{" +
@@ -95,6 +109,7 @@ public class Blog {
                 ", picture='" + picture + '\'' +
                 ", date=" + date +
                 ", description='" + description + '\'' +
+                ", points=" + points +
                 '}';
     }
 }
