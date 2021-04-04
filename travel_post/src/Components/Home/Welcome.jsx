@@ -11,7 +11,9 @@ class Welcome extends Component {
            <div>
                <h1>Post your travel adventure for the world to see</h1>
             <div>
-
+            <body>
+                <src></src>
+            </body>
                {/* <h3><a href="http://localhost/login1.php">Sign in Here</a></h3>
                <h3> Create an account <Link to= "/Signin">here</Link></h3> */}
             </div>

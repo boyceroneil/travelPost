@@ -15,6 +15,10 @@
 body{
   background-color: lightskyblue;
 }
+.updateBtn{
+  float: right;
+}
+
 .commentBtn{
   float: right;
 }

@@ -13,13 +13,15 @@ class DisplayBlog extends Component{
         this.deleteBlog = this.deleteBlog.bind(this);
         this.createBlog = this.createBlog.bind(this);
         this.updateBlog = this.updateBlog.bind(this);
-        //this.likeTotal = this.likeTotal.bind(this);
+        this.likeTotal = this.likeTotal.bind(this);
         this.createComment = this.createComment.bind(this);
         this.refreshList = this.refreshList.bind(this);
     }
+
     componentDidMount(){
         this.refreshList();
     }
+    
     refreshList(){
         blogService.retrieveAllBlog()
         .then(response =>{
@@ -33,6 +35,7 @@ class DisplayBlog extends Component{
             })
         })
     }
+    
     createComment(){
     this.props.history.push(`/AddComment`)        
     }
@@ -42,25 +45,40 @@ class DisplayBlog extends Component{
         .then(response => {
             this.setState({message: `deleting the blog`})
         })
-        this.componentDidMount()
+        this.refreshList();
     }
+    
     createBlog(){
         this.props.history.push(`/CreatePost`)
     }
+    
     updateBlog(id,name,picture,date,description,like){
+        console.log('update blog was clicked')
         this.props.history.push(`/UpdateBlog/${id}/${name}/${picture}/${date}/${description}/${like}`)
         }
+    
     likeTotal(value){
-        value= value+1
-    return    this.setState({count: this.state.count+1})
+    let blog ={
+        id: value.id,
+        name: value.name,
+        picture: value.picture,
+        description: value.description,
+        date: value.date,
+        like: value.like+1,
     }
+    this.setState({count: blog.like+1});
+    blog.like = this.state.count;
+    
+    blogService.putBlog(blog).then(()=> this.props.history.push("/DisplayBlog"))
+    }
+    
 
     render(){
         
-        function likeTotal(likes){
-            document.getElementById("show").innerHTML=likes;
-            likes=likes+1;
-        }
+        // function likeTotal(likes){
+        //     document.getElementById("show").innerHTML=likes;
+        //     likes=likes+1;
+        // }
         return(
             <html>
             <div className="entirePage">
@@ -71,13 +89,16 @@ class DisplayBlog extends Component{
            {this.state.blog.map(
                blog =>
                <div>
-                   {/* <div><label > {blog.id}</label>
-                    </div> */}
-                <h3><b>{blog.name}</b></h3>
-               
-                <div>
+                                   <div>
                <button className="updateBtn" onClick={()=>this.updateBlog(blog.id, blog.name, blog.picture, blog.date, blog.description, blog.like)}> update</button>
                </div>
+
+                   {/* <div><label > {blog.id}</label>
+                    </div> */}
+
+                <h3><b>{blog.name}</b></h3>
+               
+
                
                <label>{blog.date}</label>
                <p></p>
@@ -107,7 +128,7 @@ class DisplayBlog extends Component{
 
                    <div >
                        <p type="text" id="show">{blog.like}</p>
-               <button className="likeBtn" onClick={()=> likeTotal(blog.like)}>like button</button>
+               <button className="likeBtn" onClick={()=> this.likeTotal(blog)}>like button</button>
                </div>
 
                </div>
