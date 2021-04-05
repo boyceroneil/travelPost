@@ -32,13 +32,13 @@ public class Blog {
     private int points;
 
 
-//    @OneToMany(mappedBy = "blog", fetch=FetchType.LAZY,
-//            cascade = CascadeType.ALL)
-//    private Set<Comment> comment;
-//
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name= "user_id", nullable=false)
-//    private User user;
+    @OneToMany(mappedBy = "blog", fetch=FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Comment> comment;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name= "user_id", nullable=false)
+    private User user;
 
 
     public Blog(int id, String name, String picture, Date date, String description, int points) {
