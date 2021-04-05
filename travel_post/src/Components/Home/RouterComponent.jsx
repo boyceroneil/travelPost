@@ -22,7 +22,7 @@ class RouterComponent extends Component {
                         <Route exact path = "/"><Welcome/></Route>
                         <Route path = "/DisplayBlog" component = {DisplayBlogs}></Route>
                         <Route path = "/AddBlog" component = {AddBlogs}></Route>
-                        <Route path = "/UpdateBlog" component = {UpdateBlogs}></Route>
+                        <Route path = "/UpdateBlog/:id/:name/:picture/:date/:description/:like" component = {UpdateBlogs}></Route>
 
                         <Route path = "/DisplayComment" component = {DisplayComments}></Route>
                         <Route path = "/AddComment" component = {AddComponents}></Route>

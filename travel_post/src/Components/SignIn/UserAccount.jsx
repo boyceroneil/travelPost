@@ -29,13 +29,13 @@ class UserAccount extends Component{
             name: this.state.name,
             password: this.state.password
         }
-        UserService.postUser(account).then(this.props.history.push('/Main'))
+        UserService.postUser(account).then(this.props.history.push('/DisplayBlog'))
         alert("you've created your account")
     }
 
     login(){
-        UserService.retrieveUser(this.state.name)
-        alert("Welcome "+ this.state.name)
+        UserService.retrieveUser(this.state.name).then(this.props.history.push('/DisplayBlog'))
+        //alert("Welcome "+ this.state.name)
         
     }
     render() {

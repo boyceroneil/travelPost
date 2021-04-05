@@ -10,7 +10,7 @@ class Header extends Component{
                         <li><Link className="nav-link" to="/">MainPage</Link></li>
                         <li><Link className="nav-link" to="/DisplayBlog">Display Blog</Link></li>
                         <li><Link className="nav-link" to="/AddBlog">Add Blog</Link></li>
-                        <li><Link className="nav-link" to="/UpdateBlog">Update Blog</Link></li>
+                        <li><Link className="nav-link" to="/Account">Login</Link></li>
                         {/* <li><Link className="nav-link" to="/SearchDvd">Search Dvds</Link></li> */}
                         
                     
