@@ -3,6 +3,9 @@ package com.example.demo.Entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.sql.Blob;
 import java.util.Date;
 import java.util.Set;
 
@@ -31,15 +34,17 @@ public class Blog {
     @Column(name="points")
     private int points;
 
+//    ByteArrayInputStream pic = new ByteArrayInputStream(picture);
 
-    @OneToMany(mappedBy = "blog", fetch=FetchType.LAZY,
-            cascade = CascadeType.ALL)
-    private Set<Comment> comment;
+//    @OneToMany(mappedBy = "blog", fetch=FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//    private Set<Comment> comment;
+//
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name= "user_id", nullable=false)
+//    private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name= "user_id", nullable=false)
-    private User user;
-
+//    File file = new File(getPicture());
 
     public Blog(int id, String name, String picture, Date date, String description, int points) {
         this.id = id;

@@ -34,7 +34,7 @@ public class CommentControl {
         return comment;
     }
 
-    @DeleteMapping("/DeleteComment")
+    @DeleteMapping("/DeleteComment/{id}")
     public String deleteComment(@PathVariable int id){
         crud.deleteId(id);
         return "";
