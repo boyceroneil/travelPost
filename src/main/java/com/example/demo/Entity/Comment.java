@@ -23,13 +23,13 @@ public class Comment {
     @Column(name="points")
     private int points;
 
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name= "blog_id", nullable=false)
-//    private Blog blog;
-//
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name= "user_id", nullable=false)
-//    private User user1;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name= "blog_id", nullable=false)
+    private Blog blog;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name= "user_id", nullable=false)
+    private User user1;
 
     public Comment(int id, String comment, String user, Date date, int like) {
         this.id = id;
