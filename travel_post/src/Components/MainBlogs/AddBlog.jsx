@@ -14,26 +14,33 @@ class AddBlog extends Component{
         }
         this.change = this.change.bind(this)
         this.addBlog = this.addBlog.bind(this)
+       // this.readFileDataAsBase64 = this.readFileDataAsBase64.bind(this)
     }
     change(event){
         this.setState({
             [event.target.name]: event.target.value
         })
     }
+    
     addBlog(){
-        let splits= this.state.picture.split('fakepath\\');
+        //let splits= this.state.picture.split('fakepath\\');
         let blog = {
             id: this.state.id,
             name: this.state.name,
             description: this.state.description,
-            picture: splits[1],
+          //  picture: splits[1],
+          picture: this.state.picture,
             date: this.state.date,
             like: this.state.like
         }
+        // this.props.history.push(`/uploadPicture/${blog.id}/${blog.name}/${blog.date}/${blog.description}/${blog.like}`)
         blogService.postBlog(blog).then(this.props.history.push('/DisplayBlog'))
 
     }
     render(){
+        
+
+
         return(
             <div>
                 <h1> What adventures do you want to share</h1>
@@ -52,7 +59,7 @@ class AddBlog extends Component{
                         </div>
                         <div>
                             <label>Picture:</label>
-                            <input type ="file" name="picture" onChange={this.change} accept="image/*"></input>
+                            <input type ="text" name="picture" onChange={this.change} accept="image/*"></input>
                             
                         </div>
                         <div>
@@ -76,3 +83,40 @@ class AddBlog extends Component{
 }
 
 export default AddBlog;
+
+        // function readFileDataAsBase64(e){
+        //     const file = e.target.files[0];
+        
+        //     return new Promise((resolve, reject) => {
+        //         const reader = new FileReader();
+        
+        //         reader.onload = (event) => {
+        //             resolve(event.target.result);
+        //         };
+        
+        //         reader.onerror = (err) => {
+        //             reject(err);
+        //         };
+        
+        //         reader.readAsDataURL(file);
+        //     });
+        //         }
+
+        // readFileDataAsBase64(e){
+        //     const file = e.target.files[0];
+        //     return new Promise((resolve, reject) => {
+        //         const reader = new FileReader();
+        
+        //         reader.onload = (event) => {
+        //             resolve(event.target.result);
+        //         };
+        
+        //         reader.onerror = (err) => {
+        //             reject(err);
+        //         };
+        //         this.setState({
+        //             [e.target.name]: reader.readAsDataURL(file)
+        //         })
+                
+        //     });        
+        // }

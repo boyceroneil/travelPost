@@ -7,7 +7,7 @@ import AddComponents from '../Comments/AddComment'
 import DisplayBlogs from '../MainBlogs/DisplayBlogs'
 import AddBlogs from '../MainBlogs/AddBlog'
 import UpdateBlogs from '../MainBlogs/UpdateBlog'
-
+// import updatePicture from '../MainBlogs/uploadPicture'
 import User from '../SignIn/UserAccount'
 
 import Welcome from '../Home/Welcome'
@@ -23,7 +23,8 @@ class RouterComponent extends Component {
                         <Route path = "/DisplayBlog" component = {DisplayBlogs}></Route>
                         <Route path = "/AddBlog" component = {AddBlogs}></Route>
                         <Route path = "/UpdateBlog/:id/:name/:picture/:date/:description/:like" component = {UpdateBlogs}></Route>
-
+                        {/* /:user_id */}
+                        {/* <Route path = "/uploadPicture/:id/:name/:picture/:date/:description/:like" component = {updatePicture}></Route> */}
                         <Route path = "/DisplayComment" component = {DisplayComments}></Route>
                         <Route path = "/AddComment" component = {AddComponents}></Route>
                         
